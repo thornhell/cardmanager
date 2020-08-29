@@ -1,0 +1,9 @@
+.column {
+    background-color: #ebecf0;
+    width: 200px;
+    min-height: 200px;
+    margin-right: 10px;
+    border-radius: 15px;
+    padding: 10px 10px;
+    flex-grow: 0;
+}
