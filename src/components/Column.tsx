@@ -1,10 +1,16 @@
 import React from 'react';
 import './column.css'
 
-const Column = ({children}:React.PropsWithChildren<any>) => {
+interface ColumnProps {
+    text: string;
+}
+
+const Column = ({text, children}:React.PropsWithChildren<ColumnProps>) => {
     return (
         <div className='column'>
+            <h3>{text}</h3>
             {children}
+            + add new item
         </div>
     );
 };

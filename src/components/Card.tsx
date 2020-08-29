@@ -1,9 +1,14 @@
 import React from 'react';
-import './card.css'
-const Card = () => {
+import './card.css';
+
+interface CardProps {
+    text: string;
+}
+
+const Card = ({text}:CardProps) => {
     return (
         <div className='card'>
-            Card
+            {text}
         </div>
     );
 };
