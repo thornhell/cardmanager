@@ -4,6 +4,7 @@ export const ADD_LIST = 'ADD_LIST';
 export const ADD_TASK = 'ADD_TASK';
 export const MOVE_LIST = 'MOVE_LIST';
 export const SET_DRAGGED_ITEM = 'SET_DRAGGED_ITEM';
+export const MOVE_CARD = 'MOVE_CARD';
 
 export interface AddNewList {
     type: typeof ADD_LIST;
@@ -29,4 +30,14 @@ export interface MoveList {
 export interface SetDraggedItem {
     type: typeof SET_DRAGGED_ITEM;
     payload: DragItem | undefined
+}
+
+export interface MoveCard {
+    type: typeof MOVE_CARD;
+    payload: {
+        dragIndex: number,
+        hoverIndex: number,
+        sourceColumn: string,
+        targetColumn: string
+    }
 }
