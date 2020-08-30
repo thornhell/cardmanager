@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import NewItemForm from './NewItemForm';
+import { ButtonAdd } from '../styles';
 
 interface AddNewItemProps {
     onAdd(text: string): void;
@@ -19,11 +20,10 @@ const AddNewItem = (props: AddNewItemProps) => {
         )
     }
     return (
-        <button
-            className='btnAdd'
+        <ButtonAdd
             onClick={() => setShowForm(true)}>
             + add new item
-        </button>
+        </ButtonAdd>
     )
 }
 

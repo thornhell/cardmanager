@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useFocus} from '../utils/useFocus';
-import './newItem.css';
+import {FormContainer, InputContainer, ButtonCreate} from '../styles';
 
 interface NewItemFormProps {
     onAdd(text: string): void
@@ -11,19 +11,17 @@ const NewItemForm = ({onAdd}: NewItemFormProps) => {
     const inputRef = useFocus()
 
     return (
-        <div className='container'>
-            <input
-                className='inputForm'
+        <FormContainer>
+            <InputContainer
                 ref={inputRef}
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
-            <button
-                className='btnCreate'
+            <ButtonCreate
                 onClick={() => onAdd(text)}>
                 Create
-            </button>
-        </div>
+            </ButtonCreate>
+        </FormContainer>
     )
 }
 

@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import './column.css';
 import {useAppState} from '../context/AppContext';
 import Card from './Card';
 import AddNewItem from './AddNewItem';

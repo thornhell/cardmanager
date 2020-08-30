@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import {useAppState} from '../context/AppContext';
-import './card.css';
 import {useDrop} from 'react-dnd';
 import { CardContainer } from '../styles';
 import { useItemDrag } from '../utils/useItemDrag';
