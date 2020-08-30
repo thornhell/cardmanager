@@ -22,11 +22,11 @@ const Column = ({text, index, id}: ColumnProps) => {
                     key={task.id}
                 />
             )}
-            <AddNewItem onAdd={text =>
-                dispatch({
+            <AddNewItem
+                onAdd={text => dispatch({
                     type: "ADD_TASK",
-                    payload: { text, id: id }
-                })} />
+                    payload: {text, id: id}
+                })}/>
         </div>
     );
 };

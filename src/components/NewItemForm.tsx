@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {useFocus} from '../utils/useFocus'
-import './newItemForm.css'
-import './newList.css'
+import './newItem.css'
 
 interface NewItemFormProps {
     onAdd(text: string): void
@@ -20,7 +19,7 @@ const NewItemForm = ({onAdd}: NewItemFormProps) => {
                 onChange={e => setText(e.target.value)}
             />
             <button
-                className='btn'
+                className='btnCreate'
                 onClick={() => onAdd(text)}>
                 Create
             </button>
