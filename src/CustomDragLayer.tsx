@@ -1,18 +1,19 @@
-import { useDragLayer, XYCoord } from 'react-dnd';
-import { CustomDragLayerContainer } from './styles';
+import {useDragLayer, XYCoord} from 'react-dnd';
+import {CustomDragLayerContainer} from './styles';
 import Column from './components/Column';
 import React from 'react';
+import Card from './components/Card';
 
 function getItemStyles(
     currentOffset: XYCoord | null
 ) {
     if (!currentOffset) {
         return {
-            display: "none"
+            display: 'none'
         }
     }
 
-    const { x, y } = currentOffset;
+    const {x, y} = currentOffset;
 
     const transform = `translate(${x}px, ${y}px)`
     return {
@@ -22,13 +23,13 @@ function getItemStyles(
 }
 
 
-
 export const CustomDragLayer: React.FC = () => {
-    const { isDragging, item, currentOffset } = useDragLayer(monitor => ({
-        item: monitor.getItem(),
-        currentOffset: monitor.getSourceClientOffset(),
-        isDragging: monitor.isDragging()
-    }))
+    const {isDragging, item, currentOffset} = useDragLayer(
+        monitor => ({
+            item: monitor.getItem(),
+            currentOffset: monitor.getSourceClientOffset(),
+            isDragging: monitor.isDragging()
+        }))
 
     if (!isDragging) {
         return null;
@@ -37,12 +38,23 @@ export const CustomDragLayer: React.FC = () => {
     return isDragging ? (
         <CustomDragLayerContainer>
             <div style={getItemStyles(currentOffset)}>
-            <Column
-                id={item.id}
-                text={item.text}
-                index={item.index}
-                isPreview={true}
-            />
+
+                {item.type === 'COLUMN' ? (
+                    <Column
+                        id={item.id}
+                        text={item.text}
+                        index={item.index}
+                        isPreview={true}
+                    />
+                ) : (
+                    <Card
+                        columnId={item.columnId}
+                        isPreview={true}
+                        index={0}
+                        id={item.id}
+                        text={item.text}
+                    />
+                )}
             </div>
         </CustomDragLayerContainer>
     ) : null
