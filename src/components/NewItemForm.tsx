@@ -16,7 +16,7 @@ const NewItemForm = ({onAdd}: NewItemFormProps) => {
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
-            <button onClick={() => onAdd(text)}>Create
+            <button onClick={() => onAdd(text)}>
                 Create
             </button>
         </div>

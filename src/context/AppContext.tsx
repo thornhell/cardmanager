@@ -4,7 +4,7 @@ import AppStateReducer from './AppStateReducer';
 
 interface AppStateContextProps {
     state: AppState;
-    dispatch: any
+    dispatch: any;
 }
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);

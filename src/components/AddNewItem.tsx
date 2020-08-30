@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import NewItemForm from './NewItemForm';
+import './newList.css';
 
 interface AddNewItemProps {
     onAdd(text: string): void;
@@ -19,8 +20,8 @@ const AddNewItem = (props: AddNewItemProps) => {
         )
     }
     return (
-        <button onClick={() => setShowForm(true)}>
-            txt
+        <button className='newList' onClick={() => setShowForm(true)}>
+            + add new list
         </button>
     )
 }
