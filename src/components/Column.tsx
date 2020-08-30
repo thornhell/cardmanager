@@ -20,7 +20,7 @@ const Column = ({text, index, id}: ColumnProps) => {
     drag(ref);
 
     return (
-        <div className='column'>
+        <div className='column' ref={ref}>
             <h3>{text}</h3>
             {state.lists[index].tasks.map(task =>
                 <Card

@@ -1,10 +1,10 @@
 import {AppState} from './AppLists';
-import {AddNewList, AddNewTask, MoveList} from './Actions';
+import {AddNewList, AddNewTask, MoveList, SetDraggedItem} from './Actions';
 import {v4 as uuidv4} from 'uuid';
 import {findItemIndexById} from '../utils/finditemById';
 import {moveItem} from '../utils/moveItem';
 
-const AppStateReducer = (state: AppState, action: AddNewList | AddNewTask | MoveList): AppState => {
+const AppStateReducer = (state: AppState, action: AddNewList | AddNewTask | MoveList | SetDraggedItem): AppState => {
     switch (action.type) {
         case 'ADD_LIST':
             if (!action.payload) {
@@ -34,11 +34,18 @@ const AppStateReducer = (state: AppState, action: AddNewList | AddNewTask | Move
             }
         }
 
-        case "MOVE_LIST": {
+        case 'MOVE_LIST': {
             const {dragIndex, hoverIndex} = action.payload;
             state.lists = moveItem(state.lists, dragIndex, hoverIndex)
             return {
                 ...state
+            }
+        }
+
+        case 'SET_DRAGGED_ITEM': {
+            return {
+                ...state,
+                draggedItem: action.payload
             }
         }
 
