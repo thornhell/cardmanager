@@ -18,7 +18,7 @@ const App = () => {
             )}
             <AddNewItem
                 onAdd={text => dispatch({
-                    type: "ADD_LIST",
+                    type: 'ADD_LIST',
                     payload: text
                 })}
             />
