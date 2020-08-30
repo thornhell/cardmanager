@@ -3,10 +3,13 @@ export const ADD_TASK = 'ADD_TASK';
 
 export interface AddNewList {
     type: typeof ADD_LIST;
-    payload: string
+    payload: string;
 }
 
 export interface AddNewTask {
     type: typeof ADD_TASK;
-    payload: { text: string, id: string }
+    payload: {
+        text: string,
+        id: string
+    }
 }
