@@ -1,6 +1,9 @@
+import {DragItem} from "../utils/dragItem";
+
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_TASK = 'ADD_TASK';
 export const MOVE_LIST = 'MOVE_LIST';
+export const SET_DRAGGED_ITEM = 'SET_DRAGGED_ITEM';
 
 export interface AddNewList {
     type: typeof ADD_LIST;
@@ -21,4 +24,9 @@ export interface MoveList {
         dragIndex: number,
         hoverIndex: number
     }
+}
+
+export interface SetDraggedItem {
+    type: typeof SET_DRAGGED_ITEM;
+    payload: DragItem | undefined
 }
