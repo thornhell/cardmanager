@@ -4,6 +4,8 @@ import {useAppState} from '../context/AppContext';
 import Card from './Card';
 import AddNewItem from './AddNewItem';
 import {useItemDrag} from '../utils/useItemDrag';
+import {useDrop} from 'react-dnd';
+import {DragItem} from '../utils/dragItem';
 
 interface ColumnProps {
     text: string;
@@ -17,7 +19,22 @@ const Column = ({text, index, id}: ColumnProps) => {
 
     const {drag} = useItemDrag({type: "COLUMN", id, index, text});
 
-    drag(ref);
+    const [, drop] = useDrop({
+        accept: "COLUMN",
+        hover(item: DragItem) {
+            const dragIndex = item.index
+            const hoverIndex = index
+            if (dragIndex === hoverIndex) {
+                return
+            }
+            dispatch({
+                type: "MOVE_LIST", payload: {dragIndex, hoverIndex}
+            })
+            item.index = hoverIndex
+        }
+    })
+
+    drag(drop(ref));
 
     return (
         <div className='column' ref={ref}>
