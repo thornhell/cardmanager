@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import {useFocus} from '../utils/useFocus'
-import './newItem.css'
+import {useFocus} from '../utils/useFocus';
+import './newItem.css';
 
 interface NewItemFormProps {
     onAdd(text: string): void
 }
 
 const NewItemForm = ({onAdd}: NewItemFormProps) => {
-    const [text, setText] = useState("")
+    const [text, setText] = useState('')
     const inputRef = useFocus()
 
     return (
