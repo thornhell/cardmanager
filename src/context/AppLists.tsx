@@ -1,4 +1,4 @@
-import { DragItem } from "../utils/dragItem";
+import { DragItem } from '../utils/dragItem';
 
 export interface AppState {
     lists: List[];
