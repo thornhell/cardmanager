@@ -11,6 +11,7 @@ const App = () => {
             {state.lists.map((list, index) =>
                 <Column
                     text={list.text}
+                    id={list.id}
                     key={list.id}
                     index={index}
                 />
