@@ -7,7 +7,7 @@ interface DragPreviewContainerProps {
 
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
 transform: ${props => (props.isPreview ? "rotate(5deg)" : undefined)};
-opacity: ${props => (props.isHidden ? 0 : 1)};
+opacity: ${props => (props.isHidden ? 0.3 : 1)};
 `
 
 export const ColumnContainer = styled(DragPreviewContainer)`   
@@ -28,4 +28,14 @@ position: fixed;
 top: 0;
 width: 100%;
 z--index: 100;
+`
+
+export const CardContainer = styled(DragPreviewContainer)`
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  max-width: 300px;
+  border-radius: 3px;
+  box-shadow: #091e4240 0px 1px 0px 0px;
 `
